@@ -27,7 +27,8 @@ function Footer() {
               <a href="#about" onClick={(e) => scrollToSection(e, 'about')}>About</a>
             </div>
             <div className="footer-nav-column">
-              <h4>Connect</h4>
+              <h4>Resources</h4>
+              <a href="/blog">Blog</a>
               <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Contact Us</a>
             </div>
           </div>
