@@ -34,6 +34,7 @@ function Header() {
           <a href="#services" onClick={(e) => scrollToSection(e, 'services')}>Services</a>
           <a href="#features" onClick={(e) => scrollToSection(e, 'features')}>Features</a>
           <a href="#about" onClick={(e) => scrollToSection(e, 'about')}>About</a>
+          <a href="/blog">Blog</a>
           <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Contact</a>
         </nav>
       </div>

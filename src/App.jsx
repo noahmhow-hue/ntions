@@ -5,6 +5,7 @@ import Services from './components/Services/Services';
 import Features from './components/Features/Features';
 import About from './components/About/About';
 import CTA from './components/CTA/CTA';
+import NewsletterSection from './components/NewsletterSection/NewsletterSection';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
@@ -68,6 +69,7 @@ function App() {
           <Features />
           <About />
           <CTA />
+          <NewsletterSection />
           <Contact />
         </main>
         <Footer />
