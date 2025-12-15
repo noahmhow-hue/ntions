@@ -1,0 +1,17 @@
+{
+  "name": "ntions-newsletter",
+  "version": "1.0.0",
+  "description": "AI-powered newsletter automation for ntions",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate-newsletter.js",
+    "send": "node send-newsletter.js",
+    "run": "node generate-newsletter.js && node send-newsletter.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "resend": "^4.0.0",
+    "rss-parser": "^3.13.0",
+    "dotenv": "^16.3.1"
+  }
+}

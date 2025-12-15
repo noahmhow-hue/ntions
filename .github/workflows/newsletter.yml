@@ -1,0 +1,46 @@
+name: Weekly Newsletter
+
+on:
+  # Run every Sunday at 9am UTC
+  schedule:
+    - cron: '0 9 * * 0'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  send-newsletter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: ./newsletter
+        run: npm install
+
+      - name: Generate newsletter
+        working-directory: ./newsletter
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npm run generate
+
+      - name: Send newsletter
+        working-directory: ./newsletter
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+          TEST_RECIPIENTS: ${{ secrets.NEWSLETTER_RECIPIENTS }}
+        run: npm run send
+
+      - name: Archive newsletter
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-${{ github.run_number }}
+          path: newsletter/archive/
+          retention-days: 90
