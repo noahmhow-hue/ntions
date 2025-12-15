@@ -3,12 +3,30 @@ import fs from 'fs';
 import 'dotenv/config';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
 
 async function getSubscribers() {
-  // In production, you'd fetch this from a database or API
-  // For now, using test recipients from env
-  const testRecipients = process.env.TEST_RECIPIENTS || '';
-  return testRecipients.split(',').map(email => email.trim()).filter(Boolean);
+  try {
+    // Fetch all contacts from Resend Audience
+    const { data, error } = await resend.contacts.list({
+      audienceId: AUDIENCE_ID,
+    });
+
+    if (error) {
+      console.error('Error fetching subscribers:', error);
+      return [];
+    }
+
+    // Filter only subscribed contacts
+    const subscribers = data.data
+      .filter(contact => !contact.unsubscribed)
+      .map(contact => contact.email);
+
+    return subscribers;
+  } catch (error) {
+    console.error('Error fetching subscribers:', error);
+    return [];
+  }
 }
 
 function wrapInEmailTemplate(content, subject) {
@@ -60,7 +78,7 @@ async function sendNewsletter() {
   const subscribers = await getSubscribers();
 
   if (subscribers.length === 0) {
-    console.error('No subscribers found. Add emails to TEST_RECIPIENTS in .env');
+    console.error('No subscribers found in Resend Audience. People need to subscribe first!');
     process.exit(1);
   }
 

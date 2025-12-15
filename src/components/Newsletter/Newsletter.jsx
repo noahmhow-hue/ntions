@@ -10,15 +10,10 @@ function Newsletter() {
     setStatus('submitting');
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: '098b29a0-7077-45fa-9f66-e42559013725',
-          email: email,
-          from_name: 'ntions Newsletter',
-          subject: 'New Newsletter Subscriber'
-        })
+        body: JSON.stringify({ email })
       });
 
       const data = await response.json();

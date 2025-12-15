@@ -34,8 +34,8 @@ jobs:
         working-directory: ./newsletter
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
           FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
-          TEST_RECIPIENTS: ${{ secrets.NEWSLETTER_RECIPIENTS }}
         run: npm run send
 
       - name: Archive newsletter
