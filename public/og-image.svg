@@ -1,0 +1,34 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <!-- Subtle gradient overlay -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)" opacity="0.5"/>
+
+  <!-- Logo waves - scaled up -->
+  <g transform="translate(450, 200) scale(3)">
+    <path d="M4 30Q12 26 20 28Q28 30 36 26" stroke="url(#wave-gradient-og)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M6 24Q14 18 22 21Q30 24 36 18" stroke="url(#wave-gradient-og)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.75"/>
+    <path d="M10 16Q16 10 24 13Q32 16 36 10" stroke="url(#wave-gradient-og)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <circle cx="34" cy="8" r="3" fill="url(#wave-gradient-og)" opacity="0.9"/>
+    <circle cx="30" cy="12" r="1.5" fill="url(#wave-gradient-og)" opacity="0.5"/>
+  </g>
+
+  <!-- Company name -->
+  <text x="600" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#ffffff" text-anchor="middle">ntions</text>
+
+  <!-- Tagline -->
+  <text x="600" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#888888" text-anchor="middle">Modern AI Solutions for Business</text>
+
+  <defs>
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0044cc" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#0a0a0a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wave-gradient-og" x1="4" y1="30" x2="36" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0044cc"/>
+      <stop offset="0.5" stop-color="#0066ff"/>
+      <stop offset="1" stop-color="#5b9fff"/>
+    </linearGradient>
+  </defs>
+</svg>
