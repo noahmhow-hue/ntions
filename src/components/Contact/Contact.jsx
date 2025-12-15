@@ -26,7 +26,7 @@ function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_KEY', // Replace with your Web3Forms key
+          access_key: '098b29a0-7077-45fa-9f66-e42559013725',
           name: formData.name,
           email: formData.email,
           company: formData.company,
